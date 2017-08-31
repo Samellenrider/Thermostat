@@ -1,15 +1,15 @@
-describe("FizzBuzz", function() {
+describe("Thermostat", function() {
 
-  var fizzBuzz;
+  var thermostat;
 
   beforeEach(function() {
-    fizzBuzz = new FizzBuzz();
+    thermostat = new Thermostat();
   });
 
 
-  describe("returns fizz when divided by 3", function() {
-    it('fizz for 3', function() {
-      expect(fizzBuzz.play(3)).toEqual('Fizz');
+  describe("temperature is 20 by default", function() {
+    it('20 degrees', function() {
+      expect(thermostat.temperature).toEqual(20);
     });
   });
 });
