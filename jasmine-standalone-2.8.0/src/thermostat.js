@@ -1,5 +1,6 @@
 function Thermostat(){
     this.temperature = 20;
+    this.powersavingmode = true;
   };
 
   Thermostat.prototype.up = function(value) {
@@ -13,3 +14,11 @@ function Thermostat(){
       this.temperature -= value;
     };
    };
+
+   Thermostat.prototype.up = function (value){
+     if (this.powersavingmode === true && this.temperature + value > 25) {
+        throw 'You cannot go over 25 in PSM!'
+     } else {
+       this.temperature += value;
+     };
+    };

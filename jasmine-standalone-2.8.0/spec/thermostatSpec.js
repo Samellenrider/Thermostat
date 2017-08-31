@@ -12,21 +12,21 @@ describe("Thermostat", function() {
     });
   });
 
-
     it('raises temperature by 5 degrees', function() {
       thermostat.up(5)
       expect(thermostat.temperature).toEqual(25);
     });
 
-
-
     it("lowers temperature by 5 degrees", function() {
       thermostat.down(5)
       expect(thermostat.temperature).toEqual(15);
     });
-  
 
-  it('temperature cant be decreased lower than 10', function() {
-    expect(function() {thermostat.down(11)}).toThrow('cannot decrease temperature lower than min');
+    it("temperature cant be decreased lower than 10", function() {
+      expect(function() {thermostat.down(11)}).toThrow('cannot decrease temperature lower than min');
+    });
+
+    it("25 is max with powersavingmode", function() {
+      expect(function() {thermostat.up(6)}).toThrow('You cannot go over 25 in PSM!');
+    });
   });
-});
